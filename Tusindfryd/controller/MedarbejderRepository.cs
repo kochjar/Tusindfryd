@@ -37,6 +37,7 @@ namespace Tusindfryd.controller
         {
             return medarbejdere;
         }
+
         public Medarbejder HentMedarbejder(string initialer)
         {
             foreach (Medarbejder medarbejder in medarbejdere)
@@ -48,7 +49,7 @@ namespace Tusindfryd.controller
             }
             return null;
         }
-        /*
+                /*
         public void TilføjMedarbejderTilOptælling(string initialer, Optælling optælling)
         {
             foreach(Medarbejder medarbejder in medarbejdere)

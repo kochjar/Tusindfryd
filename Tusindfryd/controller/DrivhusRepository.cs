@@ -47,6 +47,20 @@ namespace Tusindfryd.controller
             }
         }
 
+        public void SletProduktionsbakke(string drivhusId, string produktionsbakkeNavn)
+        {
+            foreach (Drivhus drivhus in drivhuse)
+            {
+                foreach (Produktionsbakke produktionsbakke in drivhus.Produktionsbakker)
+                {
+                    if (produktionsbakkeNavn == produktionsbakke.Navn && drivhus.Id == drivhusId)
+                    {
+                        drivhus.Produktionsbakker.Remove(produktionsbakke);
+                    }
+                }
+            }
+        }
+
         public void TilføjSort(string navn, int produktionsTidIDage, TimeSpan halveringstid, string produktionsbakkeNavn) { 
             foreach (Drivhus drivhus in drivhuse)
             {
@@ -77,6 +91,11 @@ namespace Tusindfryd.controller
                     }
                 }
             }
+        }
+
+        public List<Drivhus> HentAlle()
+        {
+            return drivhuse;
         }
 
 

@@ -34,6 +34,7 @@ namespace Tusindfryd.model
             this.StartAntal = startAntal;
             this.ForventetSlutAntal = forventetSlutAntal;
             this.Afsluttet = afsluttet;
+            
         }
 
         public void TilføjSort(BlomsterSort sort)
@@ -41,7 +42,7 @@ namespace Tusindfryd.model
             this.Sort = sort;
         }
 
-        public void TilføjOptælling(Optælling sort)
+        public void TilføjOptælling(Optælling optælling)
         {
             this.Optælling = optælling;
         }

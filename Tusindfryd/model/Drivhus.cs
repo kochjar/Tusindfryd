@@ -26,11 +26,12 @@ namespace Tusindfryd.model
         public Drivhus(string id)
         {
             this.Id = id;
+            this.Produktionsbakker = new List<Produktionsbakke>();
         }
 
         public void TilføjProduktionsbakke(Produktionsbakke produktionsbakke)
         {
-            Produktionsbakker.Add(produktionsbakke);
+            this.Produktionsbakker.Add(produktionsbakke);
         }
     }
 }
