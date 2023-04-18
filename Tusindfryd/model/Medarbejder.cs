@@ -16,10 +16,8 @@ namespace Tusindfryd.model
         public string Navn { get { return navn; } set { navn = value; } }
 
         public Medarbejder(string initialer, string navn) {
-            
             this.Navn = navn;
             this.Initialer = initialer;
-            
         }
     }
 }
