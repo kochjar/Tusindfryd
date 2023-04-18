@@ -17,9 +17,17 @@ namespace Tusindfryd.model
 
         public string Id { get { return id; } set { id = value; } }
         public DateTime OptaltDato { get { return optaltDato; } set { optaltDato = value; } }
-
         public int OptaltAntal { get { return optaltAntal; } set { optaltAntal = value; } }
-
         public int BeregnetSlutAntal { get { return beregnetSlutAntal; } set { beregnetSlutAntal = value; } }
+
+        public Optælling(string id, DateTime optaltDato, int optaltAntal, int beregnetSlutAntal, double afvigelseIProcent, Medarbejder medarbejder)
+        {
+            this.Id = id;
+            this.OptaltDato = optaltDato;
+            this.OptaltAntal = optaltAntal;
+            this.BeregnetSlutAntal = beregnetSlutAntal;
+            this.afvigelseIProcent = afvigelseIProcent;
+            this.medarbejder = medarbejder;
+        }
     }
 }
