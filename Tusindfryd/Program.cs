@@ -16,11 +16,12 @@ namespace Tusindfryd
             controller.TilføjProduktionsbakke("Drivhus 1", "P2", 12, new DateTime(2019, 4, 1), 1, 15, false);
             controller.TilføjProduktionsbakke("Drivhus 2", "P3", 12, new DateTime(2020, 4, 1), 1, 15, false);
 
-            controller.TilføjMedarbejder("JH", "Jens Hansen");
-            controller.TilføjMedarbejder("TK", "Timotej Kochjar");
+            controller.TilføjMedarbejder("WW", "Walter White");
+            controller.TilføjMedarbejder("PF", "Peter File");
+            controller.TilføjMedarbejder("ME", "Mike Oxlong Ehrmantraut");
 
             controller.TilføjSort("Lily of the valley", 50, new TimeSpan(10, 0, 0), "P2");
-            controller.TilføjOptælling("P2", "O1", new DateTime(2022, 1, 1), 22, 20, 10, "JH");
+            controller.TilføjOptælling("P2", "O1", new DateTime(2022, 1, 1), 22, 20, 10, "WW");
 
             var drivhuse = controller.HentAlleDrivhuse();
             var medarbejdere = controller.HentAlleMedarbejdere();
@@ -42,11 +43,15 @@ namespace Tusindfryd
                     }
                 }
             }
-            /*
+
+
+            Console.WriteLine();
+            Console.WriteLine("MEDARBEJDERE: ");
             foreach (var medarbejder in medarbejdere)
             {
-                Console.WriteLine(medarbejder.Initialer + medarbejder.Navn);
-            }*/
+           
+                Console.WriteLine($"{medarbejder.Initialer}: {medarbejder.Navn}");
+            }
 
 
         }
