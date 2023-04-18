@@ -19,6 +19,8 @@ namespace Tusindfryd.model
         public DateTime OptaltDato { get { return optaltDato; } set { optaltDato = value; } }
         public int OptaltAntal { get { return optaltAntal; } set { optaltAntal = value; } }
         public int BeregnetSlutAntal { get { return beregnetSlutAntal; } set { beregnetSlutAntal = value; } }
+        public double AfvigelseIProcent { get { return afvigelseIProcent; } set { afvigelseIProcent = value; } }
+        public Medarbejder Medarbejder { get { return medarbejder; } set { medarbejder = value; } }
 
         public Optælling(string id, DateTime optaltDato, int optaltAntal, int beregnetSlutAntal, double afvigelseIProcent, Medarbejder medarbejder)
         {
@@ -26,8 +28,8 @@ namespace Tusindfryd.model
             this.OptaltDato = optaltDato;
             this.OptaltAntal = optaltAntal;
             this.BeregnetSlutAntal = beregnetSlutAntal;
-            this.afvigelseIProcent = afvigelseIProcent;
-            this.medarbejder = medarbejder;
+            this.AfvigelseIProcent = afvigelseIProcent;
+            this.Medarbejder = medarbejder;
         }
     }
 }
