@@ -8,13 +8,13 @@ namespace Tusindfryd.model
 {
     public class Drivhus
     {
-        private int nummer;
+        private string id;
         private List<Produktionsbakke> produktionsbakker;
 
-        public int Nummer
+        public string Id
         {
-            get { return nummer; }
-            set { nummer = value; }
+            get { return id; }
+            set { id = value; }
         }
 
         public List<Produktionsbakke> Produktionsbakker
@@ -23,9 +23,9 @@ namespace Tusindfryd.model
             set { produktionsbakker = value; }
         }
 
-        public Drivhus(int nummer)
+        public Drivhus(string id)
         {
-            this.nummer = nummer;
+            this.Id = id;
         }
 
         public void TilføjProduktionsbakke(Produktionsbakke produktionsbakke)

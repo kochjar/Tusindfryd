@@ -20,6 +20,7 @@ namespace Tusindfryd.model
 
         public string Navn { get { return navn; } set { navn = value; } }
         public int Størrelse { get { return størrelse; } set { størrelse = value; } }
+        public BlomsterSort Sort { get { return sort; } set { sort = value; } }
         public Optælling Optælling { get { return optælling; } set { optælling = value; } }
         public DateTime Startdato { get { return startdato; } set { startdato = value; } }
         public DateTime Slutdato { get { return slutdato; } set { slutdato = value; } }
@@ -30,15 +31,15 @@ namespace Tusindfryd.model
         public Produktionsbakke(string navn, int størrelse, Optælling optælling, BlomsterSort sort, DateTime startdato,
         DateTime slutdato, int startAntal, int forventetSlutAntal, bool afsluttet)
         {
-            Navn = navn;
-            Størrelse = størrelse;
-            Optælling = optælling;
+            this.Navn = navn;
+            this.Størrelse = størrelse;
+            this.Optælling = optælling;
             this.sort = sort;
-            Startdato = startdato;
-            Slutdato = slutdato;
-            StartAntal = startAntal;
-            ForventetSlutAntal = forventetSlutAntal;
-            Afsluttet = afsluttet;
+            this.Startdato = startdato;
+            this.Slutdato = slutdato;
+            this.StartAntal = startAntal;
+            this.ForventetSlutAntal = forventetSlutAntal;
+            this.Afsluttet = afsluttet;
         }
     }
 }
