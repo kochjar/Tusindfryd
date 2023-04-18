@@ -9,9 +9,14 @@ namespace Tusindfryd.controller
 {
     public class DrivhusRepository
     {
+
         private List<Drivhus> drivhuse;
-        public DrivhusRepository() { 
+
+        private MedarbejderRepository medarbejderRepo;
+
+        public DrivhusRepository(MedarbejderRepository medarbejderRepository) { 
             this.drivhuse = new List<Drivhus>();
+            this.medarbejderRepo = medarbejderRepository;
         }
 
         public void TilføjDrivhus(string id)
@@ -30,24 +35,24 @@ namespace Tusindfryd.controller
             }
         }
 
-        public void TilføjProduktionsbakke(string drivhus_id, string navn, int størrelse, 
+        public void TilføjProduktionsbakke(string drivhusId, string navn, int størrelse, 
         DateTime startdato, int startAntal, int forventetSlutAntal, bool afsluttet)
         {
             foreach (Drivhus drivhus in drivhuse)
             {
-                if(drivhus.Id == drivhus_id)
+                if(drivhus.Id == drivhusId)
                 {
                     drivhus.TilføjProduktionsbakke(new Produktionsbakke(navn, størrelse, startdato, startAntal, forventetSlutAntal, afsluttet));
                 }
             }
         }
 
-        public void TilføjSort(string navn, int produktionsTidIDage, TimeSpan halveringstid, string produktionsbakke_navn) { 
+        public void TilføjSort(string navn, int produktionsTidIDage, TimeSpan halveringstid, string produktionsbakkeNavn) { 
             foreach (Drivhus drivhus in drivhuse)
             {
                 foreach(Produktionsbakke produktionsbakke in drivhus.Produktionsbakker)
                 {
-                    if (produktionsbakke_navn == produktionsbakke.Navn)
+                    if (produktionsbakkeNavn == produktionsbakke.Navn)
                     {
                         produktionsbakke.TilføjSort(new BlomsterSort(navn, produktionsTidIDage, halveringstid));
                     }
@@ -55,7 +60,24 @@ namespace Tusindfryd.controller
             }
         }
 
-        public void TilføjOptælling() { }
+        public void TilføjOptælling(string produktionsbakkeNavn, string id, DateTime optaltDato,int optaltAntal, int beregnetSlutAntal,
+            double afvigelseIProcent, string medarbejderInitialer) {
+
+            foreach (Drivhus drivhus in drivhuse)
+            {
+                foreach (Produktionsbakke produktionsbakke in drivhus.Produktionsbakker)
+                {
+                    if (produktionsbakkeNavn == produktionsbakke.Navn)
+                    {
+                        produktionsbakke.TilføjOptælling(new Optælling(id, optaltDato, optaltAntal, beregnetSlutAntal, afvigelseIProcent));
+
+                        Medarbejder fundetMedarbejder = this.medarbejderRepo.HentMedarbejder(medarbejderInitialer);
+
+                        produktionsbakke.Optælling.TilføjMedarbejder(fundetMedarbejder);
+                    }
+                }
+            }
+        }
 
 
     }

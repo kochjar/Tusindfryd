@@ -23,13 +23,17 @@ namespace Tusindfryd.model
         public double AfvigelseIProcent { get { return afvigelseIProcent; } set { afvigelseIProcent = value; } }
         public Medarbejder Medarbejder { get { return medarbejder; } set { medarbejder = value; } }
 
-        public Optælling(string id, DateTime optaltDato, int optaltAntal, int beregnetSlutAntal, double afvigelseIProcent, Medarbejder medarbejder)
+        public Optælling(string id, DateTime optaltDato, int optaltAntal, int beregnetSlutAntal, double afvigelseIProcent)
         {
             this.Id = id;
             this.OptaltDato = optaltDato;
             this.OptaltAntal = optaltAntal;
             this.BeregnetSlutAntal = beregnetSlutAntal;
             this.AfvigelseIProcent = afvigelseIProcent;
+        }
+
+        public void TilføjMedarbejder(Medarbejder medarbejder)
+        {
             this.Medarbejder = medarbejder;
         }
     }
