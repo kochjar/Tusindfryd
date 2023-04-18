@@ -30,19 +30,26 @@ namespace Tusindfryd.controller
             }
         }
 
-        public void TilføjProduktionsbakke(string drivhus_id, string produktionsbakke_navn, int størrelse, string sort_navn)
+        public void TilføjProduktionsbakke(string drivhus_id, string navn, int størrelse, 
+        DateTime startdato, int startAntal, int forventetSlutAntal, bool afsluttet)
         {
-
+            foreach (Drivhus drivhus in drivhuse)
+            {
+                if(drivhus.Id == drivhus_id)
+                {
+                    drivhus.TilføjProduktionsbakke(new Produktionsbakke(navn, størrelse, startdato, startAntal, forventetSlutAntal, afsluttet));
+                }
+            }
         }
 
-        public void TilføjSort(string navn, int produktionsTidIDage, TimeSpan halveringstid, string produktionsbakke_navn, string drivhus_id) { 
+        public void TilføjSort(string navn, int produktionsTidIDage, TimeSpan halveringstid, string produktionsbakke_navn) { 
             foreach (Drivhus drivhus in drivhuse)
             {
                 foreach(Produktionsbakke produktionsbakke in drivhus.Produktionsbakker)
                 {
                     if (produktionsbakke_navn == produktionsbakke.Navn)
                     {
-                        produktionsbakke.Sort = new BlomsterSort(navn, produktionsTidIDage, halveringstid);
+                        produktionsbakke.TilføjSort(new BlomsterSort(navn, produktionsTidIDage, halveringstid));
                     }
                 }
             }
